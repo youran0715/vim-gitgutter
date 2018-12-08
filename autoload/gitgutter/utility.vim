@@ -96,7 +96,7 @@ function! gitgutter#utility#system(cmd, ...) abort
   call gitgutter#debug#log(a:cmd, a:000)
 
   call s:use_known_shell()
-  silent let output = (a:0 == 0) ? system(a:cmd) : system(a:cmd, a:1)
+  silent let output = (a:0 == 0) ? vimproc#system(a:cmd) : vimproc#system(a:cmd, a:1)
   call s:restore_shell()
 
   return output
